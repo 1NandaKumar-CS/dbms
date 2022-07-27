@@ -1,0 +1,51 @@
+create database cust;
+use cust;
+create table customer(cust int primary key,cname varchar(20),city varchar(20));
+drop table item;
+
+create table order1(orderr int primary key,odate date,cust int,ord_amt int,foreign key(cust) REFERENCES customer(cust) ON DELETE CASCADE);
+create table item(item int primary key,unit_price int);
+create table order_item(orderr int,item int,qty int,foreign key(orderr) references order1(orderr),foreign key(item) references item(item));
+create table warehouse(WH_id int,city varchar(20),primary key(WH_id));
+create table shipment(orderr int,WH_id int,sdate date,foreign key(orderr) references order1(orderr),foreign key(WH_id) references warehouse(WH_id));
+
+select * from order1 where orderr in (select s.orderr from shipment s,warehouse w where w.city='bangalore');
+
+INSERT INTO CUSTOMER VALUES(10,'PREETHI','BANGALORE');
+INSERT INTO CUSTOMER VALUES(11,'VIVEK','MANGALORE');
+INSERT INTO CUSTOMER VALUES(12,'BHASKAR','CHENNAI');
+INSERT INTO CUSTOMER VALUES(13,'CHETTAN','BANGALORE');
+INSERT INTO CUSTOMER VALUES(14,'MANISH','BANGALORE');
+
+INSERT INTO order1 VALUES(50,'04-03-17',10,1000);
+INSERT INTO  order1 VALUES(51,'20-01-17',10,2000);
+INSERT INTO  order1 VALUES(52,'24-02-17',13,2000);
+INSERT INTO  order1 VALUES(53,'13-APR-17',14,3000);
+INSERT INTO  order1 VALUES(54,'09-MAR-17',12,2000);
+
+
+INSERT INTO item VALUES(10,1000);
+INSERT INTO item VALUES(20,1900);
+INSERT INTO item VALUES(30,1200);
+INSERT INTO item VALUES(40,1300);
+INSERT INTO item VALUES(30,2000);
+
+insert into order_item values(50,10,6000); 
+insert into order_item values(51,20,3000);
+insert into order_item values(50,10,2000);
+insert into order_item values(40,1000);
+insert into order_item values(50,2000);
+
+insert into warehouse values(20,'bangalore');
+insert into warehouse values(21,'kolkata');
+insert into warehouse values(22,'hyderabad');
+insert into warehouse values(23,'chennai');
+insert into warehouse values(25,'mangalore');
+
+insert into shipment values(50,20,'2022:07:12');
+insert into shipment values(51,21,'2022:07:12');
+insert into shipment values(51,22,'2022:07:12');
+insert into shipment values(004,20,'2022:07:12');
+insert into shipment values(005,20,'2022:07:12');
+select * from shipment;
+
