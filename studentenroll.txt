@@ -1,0 +1,33 @@
+
+INSERT INTO students (regno,sname,major,bdate) VALUES
+(400,'arya','ise','16-01-2000'),
+(401,'riya','cs','1-05-2002'),
+(402,'priya','me','6-04-2002'),
+(404,'surya','ee','26-012-2001'),
+(403,'divya','cs','6-09-2002');
+
+INSERT INTO course (cno,cname,dept) VALUES
+(123,'som','me'),
+(125,'mom','me'),
+(223,'ds','cs'),
+(233,'ada','cs'),
+(323,'ceee','ee');
+
+INSERT INTO enroll (regno,cname,sem,marks) VALUES
+(400,'arya',2,75),
+(400,'arya',2,45),
+(401,'riya',4,77),
+(402,'priya',6,89),
+(404,'surya',6,35),
+(403,'divya',2,98);
+
+INSERT INTO bookadoption (cno,sem,isbn) VALUES
+(123,6,1275),
+(125,6,1276),
+(223,3,2275),
+(233,4,2375),
+(323,6,1275),
+
+
+
+
