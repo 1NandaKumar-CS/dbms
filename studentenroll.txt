@@ -12,11 +12,11 @@ drop table bookadoption;
 desc course;
 
 INSERT INTO students (regno,sname,major,bdate) VALUES
-(400,'arya','ise','16-01-2000'),
-(401,'riya','cs','1-05-2002'),
-(402,'priya','me','6-04-2002'),
-(404,'surya','ee','26-012-2001'),
-(403,'divya','cs','6-09-2002');
+(400,'arya','ise','16-01-00'),
+(401,'riya','cs','1-05-02'),
+(402,'priya','me','6-04-02'),
+(404,'surya','ee','26-12-01'),
+(403,'divya','cs','6-09-02');
 
 INSERT INTO course (cno,cname,dept) VALUES
 (123,'som','me'),
@@ -38,7 +38,14 @@ INSERT INTO bookadoption (cno,sem,isbn) VALUES
 (125,6,1276),
 (223,3,2275),
 (233,4,2375),
-(323,6,1275),
+(323,6,1275);
+
+INSERT INTO btext (isbn,title,publisher,author) VALUES
+(1275,'som','mallikarjun','kosaksi pasapugazh'),
+(1276,'mom','rahul gandhi','sujatha'),
+(2275,'ds','malarvizhi','selvaraj'),
+(1277,'ada','nagarjun','hussain'),
+(2375,'ceee','gagan','apache');
 
 
 
