@@ -1,11 +1,15 @@
-
 create database studentenroll;
 use studentenroll;
 create table students(regno varchar(20) primary key,sname varchar(20),major varchar(20),bdate date);
-create table course(cno int primary key,cname varchar(20),dept varchar(20));
-create table enroll(regno varchar(20) primary key,cname varchar(20),sem int, marks int,foreign key(regno) references students(regno));
-create table b_adoption(cno int,sem int,isbn int, primary key(cno,isbn),foreign key(cno)references course(cno));
-create table btext(isbn int primary key,title varchar(20),publisher varchar(20),author varchar(20),foreign key(isbn) references b_adoption(isbn));
+create table course(cno int ,cname varchar(20), primary key(cno,cname) ,dept varchar(20));
+create table enroll(regno varchar(20) ,cname varchar(20),sem int, marks int,primary key(regno),foreign key(regno) references students(regno));
+create table bookadoption(cno int,sem int,isbn int, primary key(cno,isbn),foreign key(cno)references course(cno));
+create table btext(isbn int ,title varchar(20),publisher varchar(20),author varchar(20));
+alter table btext add foreign key(isbn) references bookadoption(isbn);
+
+drop table course;
+desc course;
+
 INSERT INTO students (regno,sname,major,bdate) VALUES
 (400,'arya','ise','16-01-2000'),
 (401,'riya','cs','1-05-2002'),
