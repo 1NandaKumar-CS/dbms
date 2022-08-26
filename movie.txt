@@ -1,0 +1,26 @@
+create database movie;
+use movie;
+
+create table actor(Act_id int primary key, Act_Name varchar(30), Act_Gender varchar(30));
+create TABLE director(Dir_id int primary key, Dir_Name varchar(30), Dir_Phone int);
+create table movies(Mov_id int primary key, Mov_Title varchar(30), Mov_Year date, Mov_Lang varchar(30), Dir_id int, foreign key(Dir_id) references director(Dir_id));
+create table moviecast(Act_id int, Mov_id int, Role_ varchar(30), foreign key(Act_id) references actor(Act_id), foreign key(Mov_id) references movies(Mov_id));
+create table rating(Mov_id int, Rev_Stars int);
+
+insert into actor values(100,'jonny depp','male');
+insert into actor values(101,'rdj','male');
+insert into actor values(102,'margot robbie','female');
+insert into actor values(103,'bruce wayne','male');
+
+insert into director values(200,'james cameron',99005062543);
+insert into director values(201,'jonathan',99005062465);
+insert into director values(202,'hitchcock',990057895543);
+insert into director values(203,'christopher nolan',9900578973543);
+
+insert into movies values(300,'sailor',2021,'english',200);
+insert into movies values(300,'pirates of carribean',2012,'english',200);
+insert into movies values(300,'dark knight',2012,'english',203);
+
+
+
+
